@@ -1,0 +1,41 @@
+group 'li.haomin.flutter_aliplayer'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven() {
+            url 'https://maven.aliyun.com/repository/releases'
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 16
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+    dependencies {
+        implementation 'com.aliyun.sdk.android:AliyunPlayer:4.5.0-full'
+        implementation 'com.alivc.conan:AlivcConan:0.9.5'
+    }
+}
